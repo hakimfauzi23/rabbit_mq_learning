@@ -1,0 +1,11 @@
+{
+    "name": "hakimfauzi23/rabbit_mq_learning",
+    "autoload": {
+        "psr-4": {
+            "Hakimfauzi23\\RabbitMqLearning\\": "src/"
+        }
+    },
+    "require": {
+        "php-amqplib/php-amqplib": "^3.5"
+    }
+}
