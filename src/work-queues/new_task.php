@@ -19,8 +19,13 @@ if (empty($data)) {
     $data = "Hello World";
 }
 
-$msg = new AMQPMessage($data);
-$channel->basic_publish($msg, '','hello');
+$msg = new AMQPMessage(
+    $data,
+    [
+        ## Configuration for mark the message 'durable'
+        'delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT
+    ]
+);
+$channel->basic_publish($msg, '', 'hello');
 
 echo '[x] Sent ', $data, "\n";
-
